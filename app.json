@@ -3,13 +3,18 @@
     "name": "MarsWeather",
     "slug": "MarsWeather",
     "version": "1.0.0",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain"
+    },
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
     "scheme": "MarsWeather",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.dasandev.MarsWeather"
     },
     "android": {
       "adaptiveIcon": {

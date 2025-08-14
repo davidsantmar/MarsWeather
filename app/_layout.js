@@ -8,7 +8,6 @@ export default function Layout () {
         <View style={styles.container}>
           <Stack 
             screenOptions={{
-              //#e6944f
               headerStyle: { backgroundColor:'#e6944f' },
               headerTitle: "",
               headerBackButtonDisplayMode: "generic", 

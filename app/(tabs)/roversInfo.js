@@ -183,7 +183,7 @@ export default function RoversInfo() {
                       {
                         width: pressed ? 180 : 200,
                         height: pressed ? 300 : 320,
-                      },
+                      }
                     ]}
                     onLoadStart={() => setIsLoading3(true)}
                     onLoadEnd={() => setIsLoading3(false)}

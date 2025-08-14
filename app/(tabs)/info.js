@@ -1,5 +1,6 @@
-import { ScrollView, Text, Image, View, Platform, ImageBackground, StyleSheet, ActivityIndicator } from "react-native";
+import { ScrollView, Text, Image, View, Platform, ImageBackground, StyleSheet, ActivityIndicator, Pressable } from "react-native";
 import { useState } from "react";
+import { Link } from "expo-router";
 
 export default function Info() {
     const [isLoading1, setIsLoading1] = useState(true);
@@ -64,56 +65,86 @@ export default function Info() {
                     <Text style={{ color: "white", marginTop:"20", fontSize: 20, fontWeight: "bold" }}>Mars Rovers</Text>
                 </View>
                 <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-evenly"}}>
-                    <View style={styles.roverCard}>
-                        {isLoading2 && (
-                        <ActivityIndicator style={styles.activity} color={'green'} size={'small'} />
-                        )}
-                        <Image
-                            source={{ uri: "https://spaceplace.nasa.gov/resources/recommended-icons/perseverance.en.png" }}
-                            style={{ width: 80, height: 80, resizeMode: "cover", borderRadius: 10, marginTop: 20}}
-                            onLoadStart={() => setIsLoading2(true)}
-                            onLoadEnd={() => setIsLoading2(false)}
-                        />
-                        <Text style={{ color: "white", marginTop:"2", fontSize: 15 }}>Perseverance</Text>
-                    </View>
-                    <View style={styles.roverCard}>
-                        {isLoading3 && (
-                        <ActivityIndicator style={styles.activity} color={'green'} size={'small'} />
-                        )}
-                        <Image
-                            source={{ uri: "https://spaceplace.nasa.gov/resources/recommended-icons/curiosity.en.png" }}
-                            style={{ width: 80, height: 80, resizeMode: "cover", borderRadius: 10, marginTop: 20}}
-                            onLoadStart={() => setIsLoading3(true)}
-                            onLoadEnd={() => setIsLoading3(false)}
-                        />
-                        <Text style={{ color: "white", marginTop:"2", fontSize: 15 }}>Curiosity</Text>
-                    </View>
-                    <View style={styles.roverCard}>
-                        {isLoading4 && (
-                        <ActivityIndicator style={styles.activity} color={'green'} size={'small'} />
-                        )}
-                        <Image
-                            source={{ uri: "https://spaceplace.nasa.gov/resources/recommended-icons/spirit-opportunity.en.png" }}
-                            style={{ width: 80, height: 80, resizeMode: "cover", borderRadius: 10, marginTop: 20}}
-                            onLoadStart={() => setIsLoading4(true)}
-                            onLoadEnd={() => setIsLoading4(false)}
-                        />
-                        <View style={{ flexDirection: "column", alignItems: "center", width: 110}}>
-                            <Text style={{ color: "white", marginTop:"2", fontSize: 15 }}>Spirit and Opportunity</Text>
-                        </View>
-                    </View>
-                    <View style={styles.roverCard}>
-                        {isLoading5 && (
-                        <ActivityIndicator style={styles.activity} color={'green'} size={'small'} />
-                        )}
-                        <Image
-                            source={{ uri: "https://spaceplace.nasa.gov/resources/recommended-icons/sojourner.en.png" }}
-                            style={{ width: 80, height: 80, resizeMode: "cover", borderRadius: 10, marginTop: 20}}
-                            onLoadStart={() => setIsLoading5(true)}
-                            onLoadEnd={() => setIsLoading5(false)}
-                        />
-                        <Text style={{ color: "white", marginTop:"2", fontSize: 15 }}>Sojourner</Text>
-                    </View>
+                    <Link asChild href="/perseverance">
+                        <Pressable>
+                            {({ pressed }) => (
+                                <View style={styles.roverCard}>
+                                {isLoading2 && (
+                                    <ActivityIndicator style={styles.activity} color={'green'} size={'small'} />
+                                )}
+                                <Image
+                                    source={{ uri: "https://spaceplace.nasa.gov/resources/recommended-icons/perseverance.en.png" }}
+                                    style={{ width: pressed ? 60: 80, height:  pressed ? 60 : 80, resizeMode: "cover", borderRadius: 10, marginTop: 20}}
+                                    onLoadStart={() => setIsLoading2(true)}
+                                    onLoadEnd={() => setIsLoading2(false)}
+                                />
+                                <View style={{ flexDirection: "column", alignItems: "center", width: 110}}>
+                                    <Text style={{ color: "white", marginTop:"2", fontSize: 15 }}>Perseverance</Text>
+                                </View>
+                                </View>
+                            )}
+                        </Pressable>
+                    </Link>  
+                    <Link asChild href="/curiosity">
+                        <Pressable>
+                            {({ pressed }) => (
+                                <View style={styles.roverCard}>
+                                {isLoading3 && (
+                                    <ActivityIndicator style={styles.activity} color={'green'} size={'small'} />
+                                )}
+                                <Image
+                                    source={{ uri: "https://spaceplace.nasa.gov/resources/recommended-icons/curiosity.en.png" }}
+                                    style={{ width: pressed ? 60: 80, height:  pressed ? 60 : 80, resizeMode: "cover", borderRadius: 10, marginTop: 20}}
+                                    onLoadStart={() => setIsLoading3(true)}
+                                    onLoadEnd={() => setIsLoading3(false)}
+                                />
+                                <View style={{ flexDirection: "column", alignItems: "center", width: 110}}>
+                                    <Text style={{ color: "white", marginTop:"2", fontSize: 15 }}>Curiosity</Text>
+                                </View>
+                                </View>
+                            )}
+                        </Pressable>
+                    </Link>  
+                    <Link asChild href="/spiritOpportunity">
+                        <Pressable>
+                            {({ pressed }) => (
+                                <View style={styles.roverCard}>
+                                {isLoading4 && (
+                                    <ActivityIndicator style={styles.activity} color={'green'} size={'small'} />
+                                )}
+                                <Image
+                                    source={{ uri: "https://spaceplace.nasa.gov/resources/recommended-icons/spirit-opportunity.en.png" }}
+                                    style={{ width: pressed ? 60: 80, height:  pressed ? 60 : 80, resizeMode: "cover", borderRadius: 10, marginTop: 20}}
+                                    onLoadStart={() => setIsLoading4(true)}
+                                    onLoadEnd={() => setIsLoading4(false)}
+                                />
+                                <View style={{ flexDirection: "column", alignItems: "center", width: 110}}>
+                                    <Text style={{ color: "white", marginTop:"2", fontSize: 15 }}>Spirit and Opportunity</Text>
+                                </View>
+                                </View>
+                            )}
+                        </Pressable>
+                    </Link>                
+                    <Link asChild href="/sojourner">
+                        <Pressable>
+                            {({ pressed }) => (
+                                <View style={styles.roverCard}>
+                                {isLoading5 && (
+                                    <ActivityIndicator style={styles.activity} color={'green'} size={'small'} />
+                                )}
+                                <Image
+                                    source={{ uri: "https://spaceplace.nasa.gov/resources/recommended-icons/sojourner.en.png" }}
+                                    style={{ width: pressed ? 60: 80, height:  pressed ? 60 : 80, resizeMode: "cover", borderRadius: 10, marginTop: 20}}
+                                    onLoadStart={() => setIsLoading5(true)}
+                                    onLoadEnd={() => setIsLoading5(false)}
+                                />
+                                <View style={{ flexDirection: "column", alignItems: "center", width: 110}}>
+                                    <Text style={{ color: "white", marginTop:"2", fontSize: 15 }}>Sojourner</Text>
+                                </View>
+                                </View>
+                            )}
+                        </Pressable>
+                    </Link>  
                 </View>
                 <View style={{ alignItems: "center" }}>
                     <Text style={{ color: "white", marginTop:"30", fontSize: 20, fontWeight: "bold", marginBottom: 20}}>What does Mars look like?</Text>
@@ -176,6 +207,7 @@ const styles = StyleSheet.create({
   },
   roverCard: {
     flexDirection: 'column',
+    alignItems: 'center'
   },
   container: {
     justifyContent: 'center',
