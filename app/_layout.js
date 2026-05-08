@@ -15,7 +15,6 @@ export default function Layout () {
               headerBackTitleVisible : true,
               headerBackVisible: true,
               headerTintColor: "black",
-              headerBackVisible: true,                          
             }}/>
            
         </View>
